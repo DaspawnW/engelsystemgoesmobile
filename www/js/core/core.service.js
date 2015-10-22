@@ -86,7 +86,7 @@ angular.module('core.service', [])
  */
   .factory('HandlerInterceptor', function ($injector) {
     return {
-      responseError: function () {
+      responseError: function (rejection) {
         if (rejection.status === 401) {
           $injector.get('LoginService').showDialog();
         }

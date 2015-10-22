@@ -1,12 +1,11 @@
-<!--
-  This template loads for the 'tab.friend-detail' state (app.js)
-  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
-  The FriendsCtrl pulls data from the Friends service (service.js)
-  The Friends service returns an array of friend data
--->
 <ion-view view-title="news">
-  <ion-content class="padding">
-
-
+  <ion-content>
+    <ion-list>
+      <a class="item" ng-click="openNews(item.ID)" ng-repeat="item in news | orderBy: 'Datum'">
+        <h2>{{item.Betreff}}</h2>
+        <p>{{item.Datum*1000 | date: 'dd.MM.yyyy HH:mm'}}</p>
+        <p>Meeting: {{item.Treffen == 1 ? 'Ja': 'Nein'}}</p>
+      </a>
+    </ion-list>
   </ion-content>
 </ion-view>

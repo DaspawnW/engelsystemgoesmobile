@@ -55,6 +55,16 @@ angular.module('starter', [
         }
       })
 
+      .state('tab.newsitem', {
+        url: '/news/:id',
+        views: {
+          'tab-dash': {
+            templateUrl: 'templates/newsitem.html',
+            controller: 'NewsItemCtrl'
+          }
+        }
+      })
+
       .state('tab.meetings', {
         url: '/meetings',
         views: {

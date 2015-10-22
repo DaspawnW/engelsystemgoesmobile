@@ -1,3 +1,4 @@
 angular.module('news', [
-  'news.controller'
+  'news.controller',
+  'news.service'
 ]);

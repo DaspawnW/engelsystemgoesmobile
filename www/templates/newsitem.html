@@ -1,0 +1,21 @@
+<ion-view title="Nachricht">
+  <ion-content>
+    <div class="list card">
+      <div class="item item-divider">
+        {{news.Betreff}}
+      </div>
+      <div class="item item-body">
+        {{news.Text}} - {{news.Datum*1000 | date: 'dd.MM.yyyy HH:mm'}}
+      </div>
+    </div>
+    <div class="list card">
+      <div class="item item-divider">
+        Kommentare ({{news.comments.length}})
+      </div>
+      <div class="item" ng-repeat="comment in news.comments | orderBy: 'Datum'">
+        {{comment.Text}}
+        <p>{{comment.Nick}} - {{comment.Datum}}</p>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
