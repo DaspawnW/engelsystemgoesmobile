@@ -92,5 +92,7 @@ angular.module('starter', [
   .run(function (LoginService) {
     if (!LoginService.isAuthenticated())
       LoginService.showDialog();
+    else
+      LoginService.setHeader();
 
   });

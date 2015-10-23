@@ -57,6 +57,7 @@ angular.module('core.service', [])
       })
         .success(function (response) {
           localStorage.setItem(LOCALSTORAGE_KEY, response.api_token);
+          setHeader();
           deferrer.resolve();
         });
 
@@ -73,12 +74,22 @@ angular.module('core.service', [])
       return showDialog();
     };
 
+    /**
+     * This service set the x api header
+     */
+    var setHeader = function () {
+      if (isAuthenticated()) {
+        $http.defaults.headers.common['X-API-KEY'] = localStorage.getItem(LOCALSTORAGE_KEY);
+      }
+    };
+
 
     return {
       isAuthenticated: isAuthenticated,
       showDialog: showDialog,
       authenticate: authenticate,
-      getApiKey: getApiKey
+      getApiKey: getApiKey,
+      setHeader: setHeader
     }
   })
 /**

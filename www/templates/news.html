@@ -1,8 +1,9 @@
 <ion-view view-title="news">
   <ion-content>
     <ion-list>
-      <a class="item" ng-click="openNews(item.ID)" ng-repeat="item in news | orderBy: 'Datum'">
+      <a class="item item-icon-left" ng-click="openNews(item.ID)" ng-repeat="item in news | orderBy: 'Datum'">
         <h2>{{item.Betreff}}</h2>
+        <span class="badge badge-stable">{{item.Kommentare}}</span>
         <p>{{item.Datum*1000 | date: 'dd.MM.yyyy HH:mm'}}</p>
         <p>Meeting: {{item.Treffen == 1 ? 'Ja': 'Nein'}}</p>
       </a>
